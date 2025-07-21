@@ -97,4 +97,5 @@ with gr.Blocks() as demo:
 
     submit.click(fn=answer_from_video, inputs=[video_input, question], outputs=response)
 
-demo.launch()
+demo.launch(server_name="0.0.0.0", server_port=int(os.environ.get("PORT", 7860)))
+
