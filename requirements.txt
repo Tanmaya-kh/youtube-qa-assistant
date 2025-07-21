@@ -5,5 +5,5 @@ langchain-openai
 langchain-community
 faiss-cpu
 python-dotenv
-youtube-transcript-api
+youtube-transcript-api==0.6.1
 tiktoken
