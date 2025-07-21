@@ -1,4 +1,4 @@
-streamlit
+gradio
 openai
 langchain
 langchain-openai
@@ -6,3 +6,4 @@ langchain-community
 faiss-cpu
 python-dotenv
 youtube-transcript-api
+tiktoken
