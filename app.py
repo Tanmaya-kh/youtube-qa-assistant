@@ -80,15 +80,21 @@ def answer_from_video(video_url_or_id, question):
 # Gradio UI
 with gr.Blocks() as demo:
     gr.Markdown("## 🎬 YouTube Comment Reply Assistant")
-    gr.Markdown("Enter a YouTube URL (or just the ID) and a learner's question to get a smart, grounded reply.")
+    gr.Markdown("Enter a YouTube URL or ID and a learner's question to get a smart, grounded reply.")
 
     with gr.Row():
-        video_input = gr.Textbox(label="YouTube Video URL or ID", placeholder="e.g. https://youtu.be/wCEkK1YzqBo or wCEkK1YzqBo")
+        video_input = gr.Textbox(label="YouTube URL or Video ID", placeholder="e.g. https://youtu.be/wCEkK1YzqBo")
         question = gr.Textbox(label="Learner's Question", placeholder="e.g. What if I had 5 channels?")
 
     submit = gr.Button("Generate Answer")
-    response = gr.Textbox(label="Suggested Reply", lines=5)
+    
+    response = gr.Textbox(
+        label="Suggested Reply", 
+        lines=6, 
+        interactive=False, 
+        show_copy_button=True  # 👈 adds the nice double-rectangle icon
+    )
 
     submit.click(fn=answer_from_video, inputs=[video_input, question], outputs=response)
 
-demo.launch(share=True)
+demo.launch()
